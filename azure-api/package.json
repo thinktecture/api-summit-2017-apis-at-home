@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/thinktecture/api-summit-2017-apis-at-home#readme",
   "engines": {
-    "node": ">7.*"
+    "node": ">=7.*"
   },
   "dependencies": {
     "restify": "4.3.0"
