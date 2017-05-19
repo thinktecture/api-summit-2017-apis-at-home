@@ -1,5 +1,7 @@
 'use strict';
 
+const socketServer = require('../../socketServer');
+
 class ClawController {
     init(restify) {
         restify.get('/claw/open', this._open.bind(this));
@@ -7,11 +9,13 @@ class ClawController {
     }
 
     _open(req, res) {
-        res.json(200, 'Claw Open');
+        socketServer.send('claw', 'open');
+        res.send(200);
     }
 
     _close(req, res) {
-        res.json(200, 'Claw Close');
+        socketServer.send('claw', 'close');
+        res.send(200);
     }
 }
 

@@ -1,5 +1,9 @@
 'use strict';
 
-const httpServer = require('./httpServer');
+const httpServer = require('./httpServer'),
+    socketServer = require('./socketServer');
 
-httpServer.init(process.env.PORT || 8080);
+httpServer.init();
+socketServer.init(httpServer.getRestify());
+
+httpServer.listen(process.env.PORT || 8080);
