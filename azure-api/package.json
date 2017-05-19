@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "restify": "4.3.0",
-    "socket.io": "2.0.1"
+    "socket.io": "1.7.4"
   },
   "devDependencies": {
     "nodemon": "1.11.0"
