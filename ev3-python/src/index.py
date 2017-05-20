@@ -13,6 +13,8 @@ ir.mode = 'IR-PROX'
 ts = ev3.TouchSensor()
 assert ts.connected, "Connect a touch sensor to any port"
 
+ev3.Sound.set_volume(100)
+
 socket = SocketIO('http://api-summit-2017-apis-at-home.azurewebsites.net')
 
 def onDoItDudeCommand(command):
@@ -26,7 +28,7 @@ def onDoItDudeCommand(command):
         distance = ir.value()
         print('IR - DISTANCE: ' + str(distance))
 
-        if distance < 35:
+        if distance < 34:
             ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.RED)
 
             stopMoving()
@@ -39,6 +41,11 @@ def onDoItDudeCommand(command):
 
             closeClaw()
 
+            ev3.Sound.speak('Beer Beer Beer Beer')
+
+            time.sleep(1)
+
+            moveBackwardForTime()
 
             running = False
         else:
@@ -62,7 +69,7 @@ def openClaw():
     clawMotor.run_timed(time_sp=200, speed_sp=500)
 
 def closeClaw():
-    clawMotor.run_timed(time_sp=200, speed_sp=-500)
+    clawMotor.run_timed(time_sp=250, speed_sp=-800)
 
 def onMoveCommand(command):
     print('MOVE Command ' + command)
@@ -86,9 +93,13 @@ def moveBackward():
     moveMotor1.run_forever(speed_sp=-500)
     moveMotor2.run_forever(speed_sp=-500)
 
+def moveBackwardForTime():
+    moveMotor1.run_timed(time_sp=15000, speed_sp=-200)
+    moveMotor2.run_timed(time_sp=15000, speed_sp=-200)
+
 def moveForwardTimed():
-    moveMotor1.run_timed(time_sp=1300, speed_sp=200)
-    moveMotor2.run_timed(time_sp=1300, speed_sp=200)
+    moveMotor1.run_timed(time_sp=1500, speed_sp=200)
+    moveMotor2.run_timed(time_sp=1500, speed_sp=200)
 
 def stopMoving():
     moveMotor1.stop()
