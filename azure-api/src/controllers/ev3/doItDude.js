@@ -4,7 +4,7 @@ const socketServer = require('../../socketServer');
 
 class DoItDudeController {
     init(restify) {
-        restify.get('/doItDude', this._doItDude.bind(this));
+        restify.get('/doitdude', this._doItDude.bind(this));
     }
 
     _doItDude(req, res) {
