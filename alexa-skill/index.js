@@ -82,7 +82,7 @@ const handlers = {
     },
     'DoItDudeIntent': function () {
         executeApi('doitdude',
-            () => this.emit(':ask', this.t('DO_IT_DUDE')),
+            () => this.emit(':tell', this.t('DO_IT_DUDE')),
             () => this.emit(':tell', this.t('ERROR_INVOKING_API')));
     },
     'AMAZON.HelpIntent': function () {
