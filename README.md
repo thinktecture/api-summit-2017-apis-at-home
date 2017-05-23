@@ -22,7 +22,7 @@ It is used to translate HTTP(S) Web API calls, which are sent from the Alexa Ski
 
 ## Alexa Skill
 
-The [Alexa Skill](alexa-skill) uses a Lambda Function running Node.js 6.10. The following [intents](alexa-skill/intents.txt) (currently only in German) are available:
+The [Alexa Skill](alexa-skill) uses a Lambda Function running Node.js 6.10. The following [intents](alexa-skill/intents.json) (currently only in German) are available:
 
 * `ClawIntent`: Can open and close the claw.
 	* Voice Command: `Zange {ClawOperation}` with the following `ClawOperation`s:
