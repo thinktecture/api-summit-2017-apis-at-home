@@ -13,7 +13,7 @@ The following image describes the architecture used to use Alexa to command an E
 The [API Bridge](azure-api) is currently hosted on Azure, but can run anywhere, where Node.js and WebSockets are available. 
 It is used to translate HTTP(S) Web API calls, which are sent from the Alexa Skill, into WebSocket commands (currently done via [Socket.io](https://socket.io) v1) which are sent to the EV3 robot. The following APIs are exposed:
 
-* `claw/close`: Opens the claw.
+* `claw/open`: Opens the claw.
 * `claw/close`: Closes the claw.
 * `move/forward`: Indefinitely moves forward, until a `move/stop` command is issued.
 * `move/backward`:  Indefinitely moves backward, until a `move/stop` command is issued.
