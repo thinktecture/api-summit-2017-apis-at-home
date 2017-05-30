@@ -1,6 +1,7 @@
 # api-summit-2017-apis-at-home
 
-This repository contains the code for the API Bridge, Alexa Skill and EV3 program.
+This repository contains the code for the API Bridge, Alexa Skill and EV3 program. 
+For more in-depth information, please take a look at this blog post: [https://manuel-rauber.com/2017/05/30/alexa-start-lego-robot-connecting-amazon-alexa-to-lego-mindstorms-ev3/](https://manuel-rauber.com/2017/05/30/alexa-start-lego-robot-connecting-amazon-alexa-to-lego-mindstorms-ev3/)
 
 ## Architecture
 
