@@ -41,23 +41,6 @@ const handlers = {
     'LaunchRequest': function () {
         this.emit(':ask', this.t('WELCOME'));
     },
-    'ClawIntent': function () {
-        const clawOperation = this.event.request.intent.slots.ClawOperation;
-
-        if (!clawOperation.value) {
-            return this.emit(':ask', this.t('CLAW_NOT_POSSIBLE'));
-        }
-
-        const value = clawOperation.value;
-
-        if (!clawOperationValueMap[value]) {
-            return this.emit(':ask', this.t('CLAW_VALUE_NOT_POSSIBLE'));
-        }
-
-        executeApi('claw/' + clawOperationValueMap[value],
-            () => this.emit(':ask', this.t(value === 'open' ? 'CLAW_OPEN' : 'OK')),
-            () => this.emit(':tell', this.t('ERROR_INVOKING_API')));
-    },
     'MoveIntent': function () {
         const moveOperation = this.event.request.intent.slots.MoveOperation;
 

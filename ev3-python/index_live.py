@@ -1,6 +1,3 @@
-
-
-
 from socketIO_client import SocketIO
 import ev3dev.ev3 as ev3
 import time
@@ -60,20 +57,6 @@ def onDoItDudeCommand(command):
 def onConnect():
     print('Connected to Cloud, Dude', socket.transport_name)
 
-def onClawCommand(command):
-    print('CLAW Command: ' + command)
-
-    if (command == 'open'):
-        openClaw()
-    else:
-        closeClaw()
-
-def openClaw():
-    clawMotor.run_timed(time_sp=200, speed_sp=500)
-
-def closeClaw():
-    clawMotor.run_timed(time_sp=250, speed_sp=-800)
-
 def onMoveCommand(command):
     print('MOVE Command ' + command)
 
@@ -109,7 +92,6 @@ def stopMoving():
     moveMotor2.stop()
 
 socket.on('connect', onConnect)
-socket.on('claw', onClawCommand)
 socket.on('move', onMoveCommand)
 socket.on('doItDude', onDoItDudeCommand)
  
