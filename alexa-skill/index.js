@@ -90,6 +90,11 @@ const handlers = {
         const reprompt = this.t('HELP_REPROMPT');
         this.emit(':ask', speechOutput, reprompt);
     },
+    'Unhandled': function () {
+        const speechOutput = this.t('HELP_MESSAGE');
+        const reprompt = this.t('HELP_REPROMPT');
+        this.emit(':ask', speechOutput, reprompt);
+    },
     'AMAZON.CancelIntent': function () {
         this.emit(':tell', this.t('STOP_MESSAGE'));
     },
