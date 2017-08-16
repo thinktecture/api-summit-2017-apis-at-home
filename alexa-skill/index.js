@@ -8,14 +8,14 @@ const APP_ID = process.env.APP_ID;
 const languageStrings = {
     de: {
         translation: {
-            SKILL_NAME: 'Lego Helferlein',
-            WELCOME: '<say-as interpret-as="interjection">moin.</say-as> Benutze Sprache, um Deinen persönlichen Lego-Roboter-Assistenten zu steuern. Was möchtest Du machen?',
-            CLAW_NOT_POSSIBLE: 'Leider habe ich nicht verstanden, was ich mit der Zange machen soll. Was möchtest Du machen?',
+            SKILL_NAME: 'Fern Steuerung',
+            WELCOME: '<say-as interpret-as="interjection">moin.</say-as> Benutze Sprache, um Deine Welt zu steuern.',
+            CLAW_NOT_POSSIBLE: 'Leider habe ich nicht verstanden, was ich mit der Zange machen soll.',
             CLAW_OPEN: '<say-as interpret-as="interjection">sesam öffne dich</say-as>',
-            CLAW_VALUE_NOT_POSSIBLE: 'Die Zange kann nur geöffnet oder geschlossen werden. Was möchtest Du machen?',
-            MOVE_NOT_POSSIBLE: 'Leider habe ich nicht verstanden, wie ich den Roboter bewegen soll. Was möchtest Du machen?',
-            MOVE_VALUE_NOT_POSSIBLE: 'Die Bewegung kann nur vorwärts oder rückwärts sein. Was möchtest Du machen?',
-            HELP_MESSAGE: 'Du kannst Befehle wie "Zange Öffnen", "Fahre Vorwärts" oder "Ich habe Durst" sagen. Wie kann ich Dir helfen?',
+            CLAW_VALUE_NOT_POSSIBLE: 'Die Zange kann nur geöffnet oder geschlossen werden.',
+            MOVE_NOT_POSSIBLE: 'Leider habe ich nicht verstanden, wie ich bewegen soll.',
+            MOVE_VALUE_NOT_POSSIBLE: 'Die Bewegung kann nur vorwärts oder rückwärts sein.',
+            HELP_MESSAGE: 'Du kannst Befehle wie "Zange Öffnen", "Bewege Vorwärts" oder "Ich habe Durst" sagen.',
             HELP_REPROMPT: 'Geht nicht? Gibt\'s nicht!',
             OK: '<say-as interpret-as="interjection">voila.</say-as>',
             DO_IT_DUDE: '<prosody volume="x-loud"><say-as interpret-as="interjection">donnerwetter.</say-as></prosody> Ab geht die wilde Fahrt. <say-as interpret-as="interjection">juhu.</say-as>',
@@ -25,7 +25,7 @@ const languageStrings = {
     }
 };
 
-const baseUrl = 'http://api-summit-2017-apis-at-home.azurewebsites.net/';
+const baseUrl = 'http://alexaev3api.azurewebsites.net/';
 
 const clawOperationValueMap = {
     'schließen': 'close',

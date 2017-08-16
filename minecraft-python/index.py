@@ -2,8 +2,8 @@ from socketIO_client import SocketIO
 from mcpi.minecraft import Minecraft
 import time
 
-print("Starting WebSocket connection...")
-socket = SocketIO('http://api-summit-2017-apis-at-home.azurewebsites.net')
+print("Starting Cloud connection...")
+socket = SocketIO('http://alexaev3api.azurewebsites.net')
 
 mc = Minecraft.create()
 player = mc.player
@@ -13,7 +13,7 @@ x = pos.x
 
 
 def onConnect():
-    print('Connected to Cloud, Dude', socket.transport_name)
+    print('Connected to Cloud, Dude: ', socket.transport_name)
 
 
 def onMoveCommand(command):
@@ -32,7 +32,7 @@ def moveForward():
     global x
 
     while(True):
-        x += 1
+        x += 5
         player.setPos(x, pos.y, pos.z)
         time.sleep(1)
 

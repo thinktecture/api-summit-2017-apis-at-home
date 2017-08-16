@@ -15,7 +15,8 @@ assert ts.connected, "Connect a touch sensor to any port"
 
 ev3.Sound.set_volume(100)
 
-socket = SocketIO('http://api-summit-2017-apis-at-home.azurewebsites.net')
+socket = SocketIO('http://alexaev3api.azurewebsites.net')
+
 
 def onDoItDudeCommand(command):
     print('DO IT DUDE')
@@ -24,7 +25,7 @@ def onDoItDudeCommand(command):
 
     while(running):
         moveForward()
- 
+
         distance = ir.value()
         print('IR - DISTANCE: ' + str(distance))
 
@@ -51,11 +52,13 @@ def onDoItDudeCommand(command):
         else:
             ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
 
-    #stopMoving()
+    # stopMoving()
     ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
+
 
 def onConnect():
     print('Connected to Cloud, Dude', socket.transport_name)
+
 
 def onClawCommand(command):
     print('CLAW Command: ' + command)
@@ -65,11 +68,14 @@ def onClawCommand(command):
     else:
         closeClaw()
 
+
 def openClaw():
     clawMotor.run_timed(time_sp=200, speed_sp=500)
 
+
 def closeClaw():
     clawMotor.run_timed(time_sp=250, speed_sp=-800)
+
 
 def onMoveCommand(command):
     print('MOVE Command ' + command)
@@ -81,11 +87,13 @@ def onMoveCommand(command):
     else:
         stopMoving()
 
+
 def moveForward():
     print('Moving forward...')
 
     moveMotor1.run_forever(speed_sp=500)
     moveMotor2.run_forever(speed_sp=500)
+
 
 def moveBackward():
     print('Moving backward...')
@@ -93,21 +101,25 @@ def moveBackward():
     moveMotor1.run_forever(speed_sp=-500)
     moveMotor2.run_forever(speed_sp=-500)
 
+
 def moveBackwardForTime():
     moveMotor1.run_timed(time_sp=15000, speed_sp=-200)
     moveMotor2.run_timed(time_sp=15000, speed_sp=-200)
+
 
 def moveForwardTimed():
     moveMotor1.run_timed(time_sp=1500, speed_sp=200)
     moveMotor2.run_timed(time_sp=1500, speed_sp=200)
 
+
 def stopMoving():
     moveMotor1.stop()
     moveMotor2.stop()
+
 
 socket.on('connect', onConnect)
 socket.on('claw', onClawCommand)
 socket.on('move', onMoveCommand)
 socket.on('doItDude', onDoItDudeCommand)
- 
-socket.wait() 
+
+socket.wait()
